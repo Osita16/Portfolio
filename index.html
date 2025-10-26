@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Osita Bharti, a Robotics Engineer specializing in innovative projects and skills. Explore my work in robotics, programming, and engineering.">
+  <meta name="keywords" content="Robotics Engineer, Osita Bharti, Portfolio, Skills, Projects, Experience">
+  <meta name="author" content="Osita Bharti">
+  <meta property="og:title" content="Osita Bharti | Robotics Engineer">
+  <meta property="og:description" content="Innovative Robotics Engineer showcasing projects and expertise.">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Osita Bharti | Robotics Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer>
+  <link rel="stylesheet" href="style.css" media="all">
+</head>
+<body itemscope itemtype="https://schema.org/Person">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header id="main-header" role="banner">
+    <nav class="container" role="navigation" aria-label="Main Navigation">
+      <a href="#hero" class="nav-logo" aria-label="Go to Hero Section">Osita Bharti</a>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#about" data-section="about" aria-current="false">About</a></li>
+        <li><a href="#skills" data-section="skills" aria-current="false">Skills</a></li>
+        <li><a href="#projects" data-section="projects" aria-current="false">Projects</a></li>
+        <li><a href="#experience" data-section="experience" aria-current="false">Experience</a></li>
+        <li><a href="#blog" data-section="blog" aria-current="false">Blog</a></li>
+        <li><a href="#testimonials" data-section="testimonials" aria-current="false">Testimonials</a></li>
+        <li><a href="#contact" data-section="contact" aria-current="false">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" type="button">
+        <i class="fas fa-bars"></i>
+      </button>
+      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode" type="button">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+  </header>
+  <main id="main-content">
+    <section id="hero" class="section fade-in" role="banner" aria-labelledby="hero-title">
+      <div class="overlay"></div>
+      <div id="particles" class="particles" aria-hidden="true"></div>
+      <div class="content">
+        <h1 id="hero-title" itemprop="name">Osita Bharti</h1>
+        <h2 id="hero-subtitle" itemprop="jobTitle" class="typing">Mechatronics & Robotics Engineer</h2>
+        <p id="hero-desc" class="typing-desc">Passionate about autonomous systems, robotics, and IoT. Specializing in ROS2, SLAM, and intelligent automation solutions that bridge the gap between hardware and software.</p>
+        <div class="social-links">
+          <a id="github" href="#" target="_blank" aria-label="Visit GitHub Profile" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a id="linkedin" href="#" target="_blank" aria-label="Visit LinkedIn Profile" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a id="email" href="mailto:your-email@example.com" aria-label="Send an Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="section fade-in" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About Me</h2>
+        <div class="about-container">
+          <div>
+            <p id="about-desc" itemprop="description">I'm a B.Tech student at IIIT Bhagalpur specializing in Mechatronics and Automation Engineering. My passion lies in developing intelligent autonomous systems that solve real-world problems.</p>
+            <p id="about-bio">With hands-on experience in ROS2, autonomous navigation, and control systems, I've led multiple projects ranging from hospital automation robots to smart farming solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="section fade-in" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading">Skills</h2>
+        <div id="skills-container" class="grid" role="list" aria-label="Skills List"></div>
+      </div>
+    </section>
+    <section id="projects" class="section fade-in" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading">Projects</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="robotics" type="button">Robotics</button>
+          <button class="filter-btn" data-filter="iot" type="button">IoT</button>
+          <button class="filter-btn" data-filter="automation" type="button">Automation</button>
+        </div>
+        <div id="projects-container" class="grid" role="list" aria-label="Projects List"></div>
+      </div>
+    </section>
+    <section id="experience" class="section fade-in" aria-labelledby="experience-heading">
+      <div class="container">
+        <h2 id="experience-heading">Experience</h2>
+        <div id="experience-container" role="list" aria-label="Experience List"></div>
+      </div>
+    </section>
+    <section id="blog" class="section fade-in" aria-labelledby="blog-heading">
+      <div class="container">
+        <h2 id="blog-heading">Latest Blog Posts</h2>
+        <div id="blog-container" class="grid" role="list" aria-label="Blog Posts"></div>
+      </div>
+    </section>
+    <section id="testimonials" class="section fade-in" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 id="testimonials-heading">Testimonials</h2>
+        <div class="testimonial-carousel">
+          <div id="testimonial-container" class="testimonial-slides"></div>
+          <button class="carousel-btn prev" aria-label="Previous Testimonial" type="button"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next Testimonial" type="button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section fade-in" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Contact</h2>
+        <div itemscope itemtype="https://schema.org/ContactPoint">
+          <p>Email: <a id="contact-email" href="mailto:your-email@example.com" itemprop="email">your-email@example.com</a></p>
+          <p>Phone: <span id="contact-phone" itemprop="telephone">+91-8953367907</span></p>
+          <p>
+            <a id="contact-github" href="#" target="_blank" rel="noopener noreferrer" itemprop="sameAs">GitHub</a> |
+            <a id="contact-linkedin" href="#" target="_blank" rel="noopener noreferrer" itemprop="sameAs">LinkedIn</a>
+          </p>
+        </div>
+        <button id="contact-form-btn" aria-label="Open Contact Form" type="button">Send a Message</button>
+      </div>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> Osita Bharti | Robotics Engineer</p>
+      <div class="newsletter-signup">
+        <h3>Subscribe to Newsletter</h3>
+        <form id="newsletter-form" novalidate>
+          <input type="email" id="newsletter-email" placeholder="Your Email" required aria-label="Email for Newsletter">
+          <button type="submit" aria-label="Subscribe">Subscribe</button>
+        </form>
+        <p id="newsletter-message"></p>
+      </div>
+      <a href="#hero" class="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+        <div class="progress-ring" aria-hidden="true"></div>
+      </a>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

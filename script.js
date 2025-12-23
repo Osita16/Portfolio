@@ -30,19 +30,19 @@ const mockData = {
         title: "Medibot - Hospital Automation Robot",
         description: "Autonomous medicine delivery robot using ROS2 Nav2 and SLAM for hospital logistics.",
         category: "robotics",
-        links: { github: "#", demo: "#" },
+        links: { github: "https://github.com/Osita16/Medibot"},
       },
       {
-        title: "AgroSmart - IoT Smart Farming Robot",
-        description: "ROS2-based precision agriculture robot optimizing irrigation and crop health.",
+        title: "Ware-to-Follow",
+        description: "An intelligent Line Following and Obstacle Avoidance Robot using Arduino and sensors.",
         category: "iot",
-        links: { github: "#", demo: "#" },
+        links: { github: "https://github.com/Osita16/Ware-to-Follow" },
       },
       {
-        title: "AutoConveyor - Industrial Automation System",
-        description: "Automated conveyor belt system with PLC and sensor integration.",
+        title: "4 DOF Robotic Arm",
+        description: "Design and implementation of a 4 degree-of-freedom robotic arm for automation tasks.",
         category: "automation",
-        links: { github: "#", demo: "#" },
+        links: { github: "https://github.com/Osita16/Manipulator-Simulation" },
       },
     ],
   },
@@ -51,14 +51,13 @@ const mockData = {
       {
         role: "Research Intern",
         company: "IIT Mandi",
-        date: "June 2024 - Aug 2024",
-        description: "Developed autonomous navigation algorithms for drones.",
+        date: "June 2025 - Aug 2025",
+        description: "Designed a 4 DOF robotic arm and applied Computed Torque Control for its dynamic modelling.",
       },
       {
-        role: "Lead - Robotics Club",
-        company: "IIIT Bhagalpur",
+        role: "Lead - Robotics Club at IIIT Bhagalpur",
         date: "2023 - Present",
-        description: "Led a team of 20 students in building robotics projects.",
+        description: "Mentored 20+ students in Robotics, Electronics and ROS and built projects.",
       },
     ],
   },
@@ -174,11 +173,11 @@ class PortfolioApp {
     container.innerHTML = "";
     mockData.experience.items.forEach(e => {
       const item = document.createElement("div");
-      item.className = "exp-item";
+      item.className = "experience-card";
       item.innerHTML = `
-        <div class="date">${e.date}</div>
-        <div class="company">${e.company}</div>
         <h3>${e.role}</h3>
+        <h4>${e.company}</h4>
+        <p>${e.date}</p>
         <p>${e.description}</p>
       `;
       container.appendChild(item);
@@ -256,7 +255,13 @@ class PortfolioApp {
     const btn = $("#dark-mode-toggle");
     if (!btn) return;
     btn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
+      document.body.classList.toggle("dark-mode");
+      const icon = btn.querySelector("i");
+      if (document.body.classList.contains("dark-mode")) {
+        icon.className = "fas fa-sun";
+      } else {
+        icon.className = "fas fa-moon";
+      }
     });
   }
 
@@ -290,12 +295,12 @@ class PortfolioApp {
 
   initAnimations() {
     if (prefersReducedMotion) return;
-    const elements = $$(".reveal");
+    const elements = $$(".section");
     const revealOnScroll = () => {
       const trigger = window.innerHeight * 0.85;
       elements.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < trigger) el.classList.add("visible");
+        if (rect.top < trigger) el.classList.add("fade-in");
       });
     };
     window.addEventListener("scroll", debounce(revealOnScroll, 100));
@@ -303,11 +308,11 @@ class PortfolioApp {
   }
 
   initInteractivity() {
-    const filters = $$(".project-filter button");
-    const cards = $$(".project-card");
+    const filters = $$(".filter-btn");
+    const cards = $$("#projects-container .card");
     filters.forEach(btn => {
       btn.addEventListener("click", () => {
-        const cat = btn.dataset.cat;
+        const cat = btn.dataset.filter;
         filters.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         cards.forEach(c => {
@@ -337,7 +342,8 @@ class PortfolioApp {
 
 // ===== INITIALIZE APP =====
 document.addEventListener("DOMContentLoaded", () => new PortfolioApp());
-//adding more functionality for better user experience
+
+// Adding more functionality for better user experience
 window.addEventListener("load", () => {
   const preloader = $("#preloader");
   if (preloader) {
@@ -345,48 +351,70 @@ window.addEventListener("load", () => {
     setTimeout(() => preloader.remove(), 500);
   }
 });
-//TOGGGLE FEATURE B/ETWEEN LIGHT AND DARK MODE MANUALLY BASED ON TIME OF DAY
+
+// Toggle feature between light and dark mode manually based on time of day
 document.addEventListener("DOMContentLoaded", () => {
   const hour = new Date().getHours();
   if (hour >= 18 || hour < 6) {
-    document.body.classList.add("dark");
+    document.body.classList.add("dark-mode");
+    const btn = $("#dark-mode-toggle");
+    if (btn) {
+      const icon = btn.querySelector("i");
+      if (icon) icon.className = "fas fa-sun";
+    }
   } else {
-    document.body.classList.remove("dark");
-  } 
+    document.body.classList.remove("dark-mode");
+    const btn = $("#dark-mode-toggle");
+    if (btn) {
+      const icon = btn.querySelector("i");
+      if (icon) icon.className = "fas fa-moon";
+    }
+  }
 });
-//SMOOTH SCROLLING FOR NAVIGATION LINKS
+
+// Smooth scrolling for navigation links
 $$(".nav-links a").forEach(link => {
-  link.addEventListener("click", e => { 
+  link.addEventListener("click", e => {
     e.preventDefault();
     const targetId = link.getAttribute("href").substring(1);
     const targetSection = document.getElementById(targetId);
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: "smooth" });
-    }  
-
+    }
   });
 });
-//FORM VALIDATION FOR CONTACT FORM
-const contactForm = $("#contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", e => {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    console.log("Form submitted:", data);
+
+// Form validation for contact form (assuming a form is added or button triggers modal)
+const contactFormBtn = $("#contact-form-btn");
+if (contactFormBtn) {
+  contactFormBtn.addEventListener("click", () => {
+    // Placeholder: Open a modal or form here
+    alert("Contact form functionality can be implemented here.");
   });
 }
-//ADDING KEYBOARD NAVIGATION SUPPORT
+
+// Adding keyboard navigation support (avoiding Tab for toggle, using a different key)
 document.addEventListener("keydown", e => {
-  if (e.key === "Tab") {
-    document.body.classList.toggle("dark");
+  if (e.key === "d" && e.ctrlKey) { // Ctrl+D for dark mode toggle
+    document.body.classList.toggle("dark-mode");
+    const btn = $("#dark-mode-toggle");
+    if (btn) {
+      const icon = btn.querySelector("i");
+      if (document.body.classList.contains("dark-mode")) {
+        icon.className = "fas fa-sun";
+      } else {
+        icon.className = "fas fa-moon";
+      }
+    }
   }
 });
-//ADDING RESIZE EVENT TO ADJUST LAYOUT
+
+// Adding resize event to adjust layout
 window.addEventListener("resize", debounce(() => {
   console.log("Window resized to:", window.innerWidth, "x", window.innerHeight);
 }, 200));
-//ADDING VISIBILITY CHANGE HANDLER TO PAUSE ANIMATIONS WHEN TAB IS NOT ACTIVE
+
+// Adding visibility change handler to pause animations when tab is not active
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     console.log("Tab is inactive, pausing animations.");
@@ -394,23 +422,24 @@ document.addEventListener("visibilitychange", () => {
     console.log("Tab is active, resuming animations.");
   }
 });
-//ADDING A BACK TO TOP BUTTON
-const backToTopBtn = document.createElement("button");
-backToTopBtn.id = "back-to-top";
-backToTopBtn.innerHTML = "↑";
-document.body.appendChild(backToTopBtn);
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 300) {
-    backToTopBtn.style.display = "block";
-  } else {
-    backToTopBtn.style.display = "none";
-  }
-});
-// STICKY NAVIGATION BAR
-const navBar = $("nav");
+
+// Adding a back to top button (using existing footer link)
+const backToTopBtn = $(".back-to-top");
+if (backToTopBtn) {
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  });
+}
+
+// Sticky navigation bar
+const navBar = $("#main-header nav");
 const stickyOffset = navBar.offsetTop;
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > stickyOffset) {
@@ -419,7 +448,8 @@ window.addEventListener("scroll", () => {
     navBar.classList.remove("sticky");
   }
 });
-// LAZY LOADING IMAGES
+
+// Lazy loading images
 const lazyImages = $$("img.lazy");
 const lazyLoad = () => {
   lazyImages.forEach(img => {
@@ -431,3 +461,25 @@ const lazyLoad = () => {
 };
 window.addEventListener("scroll", debounce(lazyLoad, 200));
 lazyLoad();
+
+// End of script
+/*more features in the below code*/
+// Adding more functionality for better user experience
+window.addEventListener("load", () => {
+  const preloader = $("#preloader");
+  if (preloader) {
+    preloader.style.opacity = "0";
+    setTimeout(() => preloader.remove(), 500);
+  }
+});
+
+// Toggle feature between light and dark mode manually based on time of day
+const toggleDarkMode = () => {
+  const hour = new Date().getHours();
+  if (hour >= 18 || hour < 6) {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
+};
+document.addEventListener("DOMContentLoaded", toggleDarkMode);

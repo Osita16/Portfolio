@@ -601,13 +601,6 @@ p {
 }
 
 /* ===== CONTACT SECTION ===== */
-#contact {
-  background: var(--bg-secondary);
-  padding: 50px 20px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: 0 8px 20px var(--shadow-color);
-  margin-bottom: 50px;
-}
 
 #contact h2 {
   margin-bottom: 30px;
@@ -809,3 +802,92 @@ body.dark-mode footer {
     width: 100%;
   }
 }
+    #hero .social-links a {
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  /*<!in about me section i want a circular photo of mine on the left side of the text. Make the photo 150x150 pixels and circular in shape. Add some margin to the right of the photo so that there is space between the photo and the text. Use the image file "profile.jpg" located in the "images" folder.url(oshdh.jpg) link*/
+  .about-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+  }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .about-container > div {
+    max-width: 100%;
+  } 
+  /*Add a new section for my blog in the index.html file. The section should have a heading "Blog" and a brief description of my blog. Include a link to my blog URL "https://ositabharti.blogspot.com/". Also, add an image representing my blog next to the description. Use a cute and appealing image that reflects the theme of my blog. Make sure the section is styled consistently with the rest of the website.*/
+  
+  
+  #blog h2 {
+    margin-bottom: 20px;
+  }
+  #blog p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  #blog img {
+    width: 250px;
+    height: 250px;
+    border-radius: 60%;
+    margin-right: 20px;
+    float: left;
+  }
+/*cat image in same blog section*/ 
+#blog .cat-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 20px;
+    float: right;
+  }
+
+@media (max-width: 480px) {
+    #blog {
+      flex-direction: column;
+      text-align: center;
+    }
+    #blog img, #blog .cat-image {
+      margin: 0 0 20px 0;
+      float: none;
+    }
+  }
+  /*dark mode toggle button at top right corner of the header*/
+  /*working code for dark mode toggle button*/
+  /*on clicking light and dark theme should toggle*/
+  #dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+  /*up botton decoration*/
+  #back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    cursor: pointer;
+    transition: background var(--transition-speed), color var(--transition-speed);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+  }
+/*more responsive design for smaller screens*/
+  @media (max-width: 480px) {
+    .about-photo {
+      margin: 0 0 20px 0;
+      float: none;
+    }
+  }
+

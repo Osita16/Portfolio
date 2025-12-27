@@ -891,3 +891,14 @@ body.dark-mode footer {
     }
   }
 
+/*more features adding*/
+  /* Add hover effect to blog image */
+  #blog img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px var(--shadow-color);
+  }
+  /* Add hover effect to cat image */
+  #blog .cat-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px var(--shadow-color);
+  }
